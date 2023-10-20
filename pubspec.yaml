@@ -67,6 +67,7 @@ flutter:
      - assets/images/hobbyStart.png
      - assets/images/matchMateLogo.png
      - assets/images/menu.png
+     - assets/images/find.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

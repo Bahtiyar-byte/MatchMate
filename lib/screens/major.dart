@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/screens/login.dart';
 import 'package:flutter/widgets.dart';
+import 'package:match_mate/story.dart';
+import 'package:match_mate/story_manager.dart';
 
 class MajorScreen extends StatelessWidget {
   @override
@@ -8,11 +10,21 @@ class MajorScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
         title: Text('Match Mate'),
+        centerTitle: true,
         leading: PopupMenuButton(
-          icon: Image.asset('assets/images/menu.png', width: 24, height: 24), // Здесь ваша иконка
+          icon: Container(
+            padding: EdgeInsets.all(4), // подкладка вокруг иконки
+            decoration: BoxDecoration(
+              color: Colors.white, // белый фон
+              shape: BoxShape.rectangle, // форма контейнера
+              border: Border.all(color: Colors.white, width: 2), // белый контур
+            ),
+            child: Image.asset('assets/images/menu.png', width: 24, height: 24), // ваша иконка
+          ),
           itemBuilder: (context) => [
             PopupMenuItem(
               child: Text('About'),
@@ -47,7 +59,15 @@ class MajorScreen extends StatelessWidget {
 
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Container(
+              padding: EdgeInsets.all(4), // подкладка вокруг иконки
+              decoration: BoxDecoration(
+                color: Colors.white, // белый фон
+                shape: BoxShape.rectangle, // форма контейнера
+                border: Border.all(color: Colors.white, width: 2), // белый контур
+              ),
+              child: Image.asset('assets/images/find.png', width: 24, height: 24), // ваша иконка
+            ),
             onPressed: () {
               // Действие при нажатии на кнопку поиска
             },

@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Match Mate',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: false,
         primaryColor: Colors.red, // Цвет для фона кнопок
         hintColor: Colors.red, // Второй цвет фона
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyLarge: TextStyle(color: Colors.black), // Цвет для текста1
           bodyMedium: TextStyle(color: Colors.yellow), // Цвет для текста2
-        ),
+        ), colorScheme: ColorScheme.fromSeed(seedColor: Colors.black).copyWith(background: Colors.black),
       ),
       home: SplashScreen(),
     );
