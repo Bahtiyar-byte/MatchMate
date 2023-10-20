@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/screens/auth.dart';
 import 'package:match_mate/screens/login.dart';
-
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Получаем текущую тему
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -16,14 +18,14 @@ class SplashScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/images/hobbyStart.png', // Путь к локальной картинке
-                    width: 300, // Увеличьте размер изображения
+                    'assets/images/hobbyStart.png',
+                    width: 300,
                   ),
                   SizedBox(height: 20),
                   Text(
                     'Find Your Perfect Match',
                     style: TextStyle(
-                      color: Colors.white,
+                      // color: theme.textTheme.bodyMedium?.color,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -32,7 +34,7 @@ class SplashScreen extends StatelessWidget {
                   Text(
                     'Discover potential partners with similar interests',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: theme.textTheme.bodyMedium?.color,
                       fontSize: 16,
                     ),
                   ),
@@ -42,16 +44,14 @@ class SplashScreen extends StatelessWidget {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Навигация на новый экран при нажатии кнопки
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    //builder: (context) => AuthScreen(),
                     builder: (context) => LoginScreen(),
                   ),
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+                primary: theme.primaryColor,
                 padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
                 textStyle: TextStyle(fontSize: 20),
               ),
@@ -62,7 +62,7 @@ class SplashScreen extends StatelessWidget {
               child: Text(
                 "Don't have an account? Sign up now",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: theme.textTheme.bodyMedium?.color,
                 ),
               ),
             ),

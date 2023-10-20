@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:match_mate/screens/major.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(10),
                       child: GestureDetector(
-                        onTap: () {
+                          onTap: () {
                           Navigator.of(context).pop(); // Вернуться на предыдущий экран
                         },
                         child: Image.asset(
@@ -86,10 +87,14 @@ class LoginScreen extends StatelessWidget {
               // Кнопка Login с красным фоном и круглыми краями на всю ширину экрана
               ElevatedButton(
                 onPressed: () {
-                  // Обработчик нажатия кнопки Login
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => MajorScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.red, // Красный цвет фона
+                  primary: Theme.of(context).colorScheme.surface, // Красный цвет фона
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
                   ),
@@ -99,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    color: Colors.white, // Белый текст
+                    color: Theme.of(context).colorScheme.onSurface, // Белый текст
                     fontSize: 16,
                   ),
                 ),
