@@ -3,11 +3,25 @@ import 'package:match_mate/screens/login.dart';
 import 'package:flutter/widgets.dart';
 import 'package:match_mate/story.dart';
 import 'package:match_mate/story_manager.dart';
+import 'package:match_mate/story_widget.dart';
+import 'package:match_mate/popup_menu_widget.dart';
 
 class MajorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    void handleMenuItemSelected(String value) {
+      if (value == 'about') {
+        // on "About"
+      } else if (value == 'cabinet') {
+        // on "Cabinet"
+      } else if (value == 'settings') {
+        // on "Settings"
+      } else if (value == 'logout') {
+        // on "Log Out"
+      }
+    }
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -15,85 +29,54 @@ class MajorScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         title: Text('Match Mate'),
         centerTitle: true,
-        leading: PopupMenuButton(
-          icon: Container(
-            padding: EdgeInsets.all(4), // подкладка вокруг иконки
-            decoration: BoxDecoration(
-              color: Colors.white, // белый фон
-              shape: BoxShape.rectangle, // форма контейнера
-              border: Border.all(color: Colors.white, width: 2), // белый контур
-            ),
-            child: Image.asset('assets/images/menu.png', width: 24, height: 24), // ваша иконка
-          ),
-          itemBuilder: (context) => [
-            PopupMenuItem(
-              child: Text('About'),
-              value: 'about',
-            ),
-            PopupMenuItem(
-              child: Text('Cabinet'),
-              value: 'cabinet',
-            ),
-            PopupMenuItem(
-              child: Text('Settings'),
-              value: 'settings',
-            ),
-            PopupMenuItem(
-              child: Text('Log Out'),
-              value: 'logout',
-            ),
-          ],
-          onSelected: (value) {
-            // Обработка выбора в меню
-            if (value == 'about') {
-              // Действие при выборе "About"
-            } else if (value == 'cabinet') {
-              // Действие при выборе "Cabinet"
-            } else if (value == 'settings') {
-              // Действие при выборе "Settings"
-            } else if (value == 'logout') {
-              // Действие при выборе "Log Out"
-            }
-          },
-        ),
+        leading: PopupMenuWidget(onMenuItemSelected: handleMenuItemSelected),
 
         actions: [
-          IconButton(
-            icon: Container(
-              padding: EdgeInsets.all(4), // подкладка вокруг иконки
-              decoration: BoxDecoration(
-                color: Colors.white, // белый фон
-                shape: BoxShape.rectangle, // форма контейнера
-                border: Border.all(color: Colors.white, width: 2), // белый контур
-              ),
-              child: Image.asset('assets/images/find.png', width: 24, height: 24), // ваша иконка
-            ),
-            onPressed: () {
-              // Действие при нажатии на кнопку поиска
+          InkWell(
+            onTap: () {
+              // Ваш код, который выполнится при нажатии на кнопку "Find"
             },
+            child: Container(
+              width: 32, // Ширина кнопки
+              height: 32, // Высота кнопки
+              decoration: BoxDecoration(
+                shape: BoxShape.circle, // Сделать кнопку круглой
+                color: Colors.white, // Цвет кнопки
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Image.asset(
+                  'assets/images/find.png',
+                  width: 32,
+                  height: 32,
+                ),
+              ),
+            ),
           ),
         ],
       ),
-
       body: Column(
         children: [
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Container(
-                  width: 100,
-                  height: 100,
-                  margin: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.grey,
-                  ),
-                );
-              },
-            ),
+          Container(
+            height: 1, // divider
+            color: theme.dividerColor, //
+            margin: EdgeInsets.symmetric(vertical: 8),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 8),
+          ),
+          StoryWidget(), // Stories
+          Container(
+            height: 1, // divider
+            color: theme.dividerColor, //
+            margin: EdgeInsets.symmetric(vertical: 8),
           ),
           Expanded(
             flex: 3,
@@ -110,7 +93,7 @@ class MajorScreen extends StatelessWidget {
                           width: 300,
                         ),
                         SizedBox(height: 20),
-                        // Добавьте другие элементы интерфейса
+                        // other elements
                       ],
                     ),
                   ),

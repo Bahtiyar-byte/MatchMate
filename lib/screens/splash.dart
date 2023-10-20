@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/images/hobbyStart.png',
+                    'assets/images/hobby.png',
                     width: 300,
                   ),
                   SizedBox(height: 20),
@@ -51,9 +51,12 @@ class SplashScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: theme.primaryColor,
+                primary: Theme.of(context).hintColor, //  цвет кнопки
                 padding: EdgeInsets.symmetric(horizontal: 80, vertical: 20),
                 textStyle: TextStyle(fontSize: 20),
+                shape: RoundedRectangleBorder( // Закругленные края
+                  borderRadius: BorderRadius.circular(30), // Радиус 30 пикселей
+                ),
               ),
               child: Text('Get Started'),
             ),

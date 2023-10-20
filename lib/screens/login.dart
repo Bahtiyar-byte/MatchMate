@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                           Navigator.of(context).pop(); // Вернуться на предыдущий экран
                         },
                         child: Image.asset(
-                          'assets/images/matchMateLogo.png',
+                          'assets/images/mateLogin.png',
                           width: 200,
                         ),
                       ),
@@ -94,17 +94,18 @@ class LoginScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).colorScheme.surface, // Красный цвет фона
+
+                  primary: Theme.of(context).hintColor, //  цвет фона
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 15), // Уменьшаем высоту кнопки
-                  minimumSize: Size(double.infinity, 0), // Ширина кнопки на всю ширину экрана
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  minimumSize: Size(double.infinity, 0),
                 ),
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface, // Белый текст
+                    color: Colors.white, // Белый текст
                     fontSize: 16,
                   ),
                 ),
@@ -116,7 +117,7 @@ class LoginScreen extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    height: 1, // Высота полосы
+                    height: 1,
                     color: Colors.grey, // Серый цвет
                   ),
                   Center(
@@ -144,7 +145,7 @@ class LoginScreen extends StatelessWidget {
                       // Обработчик нажатия кнопки Facebook
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red, // Красный цвет фона
+                      primary: Theme.of(context).hintColor, //  цвет фона
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
                       ),
@@ -165,7 +166,7 @@ class LoginScreen extends StatelessWidget {
                       // Обработчик нажатия кнопки Google
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red, // Красный цвет фона
+                      primary: Theme.of(context).hintColor, //  цвет фона
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
                       ),
