@@ -74,6 +74,8 @@ flutter:
      - assets/images/findB.png
      - assets/images/hobby.png
      - assets/images/mateLogin.png
+     - assets/images/search_icon.png
+
 
      - assets/stories/1.jpg
      - assets/stories/2.jpg

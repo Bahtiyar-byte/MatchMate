@@ -24,6 +24,12 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.red,
           hintColor: Colors.blueGrey,
           dividerColor: Colors.grey,
+
+          popupMenuTheme: PopupMenuThemeData(
+            color: Colors.grey[850], // Темно-серый цвет фона
+            textStyle: TextStyle(color: Colors.white), // Белый цвет текста
+          ),
+
           textTheme: TextTheme(
             bodyLarge: TextStyle(color: Colors.grey),
             bodyMedium: TextStyle(color: Colors.white),
