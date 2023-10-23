@@ -12,10 +12,10 @@ class PopupMenuWidget extends StatelessWidget {
         padding: EdgeInsets.all(4),
         decoration: BoxDecoration(
           //color: Colors.white,
-          shape: BoxShape.circle,
+          shape: BoxShape.rectangle,
           //border: Border.all(color: Colors.white, width: 2),
         ),
-        child: Image.asset('assets/images/menu.png', width: 48, height: 48),
+        child: Image.asset('assets/images/menuB.png', width: 48, height: 48),
       ),
       itemBuilder: (context) => [
         PopupMenuItem(

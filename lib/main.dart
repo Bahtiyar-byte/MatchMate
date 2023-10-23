@@ -8,7 +8,7 @@ import 'package:match_mate/screens/splash.dart';
 /*
 final colorScheme = ColorScheme.fromSeed(seedColor: Colors.green);
 
-// Теперь вы можете получить различные цвета из схемы, например:
+
 final primaryColor = colorScheme.primary; // Основной цвет (светло-зеленый)
 final secondaryColor = colorScheme.secondary; // Вторичный цвет (темно-зеленый)
 final backgroundColor = colorScheme.background; // Цвет фона
@@ -35,15 +35,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false, // режим дебага
+
       title: 'Match Mate',
       theme: ThemeData(
         useMaterial3: false,
         primaryColor: Colors.red, // Цвет для фона кнопок
         hintColor: Colors.blueGrey, // Второй цвет фона кнопок
         dividerColor: Colors.grey, // Цвет для линий
+
+
         textTheme: TextTheme(
-          bodyLarge: TextStyle(color: Colors.black), // Цвет для текста1
+          bodyLarge: TextStyle(color: Colors.grey), // Цвет для текста1
           bodyMedium: TextStyle(color: Colors.white), // Цвет для текста2
+
         ), colorScheme: ColorScheme.fromSeed(seedColor: Colors.black).copyWith(background: Colors.black),
       ),
       home: SplashScreen(),

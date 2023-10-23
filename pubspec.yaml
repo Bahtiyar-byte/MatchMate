@@ -68,6 +68,8 @@ flutter:
      - assets/images/matchMateLogo.png
      - assets/images/menu.png
      - assets/images/find.png
+     - assets/images/menuB.png
+     - assets/images/findB.png
      - assets/images/hobby.png
      - assets/images/mateLogin.png
 
@@ -82,6 +84,16 @@ flutter:
      - assets/stories/9.jpg
      - assets/stories/10.jpg
 
+     - assets/cards/1.jpeg
+     - assets/cards/2.jpeg
+     - assets/cards/3.jpeg
+     - assets/cards/4.jpeg
+     - assets/cards/5.jpeg
+     - assets/cards/6.jpeg
+     - assets/cards/7.jpeg
+     - assets/cards/8.jpeg
+     - assets/cards/9.jpeg
+     - assets/cards/10.jpeg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
