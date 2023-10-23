@@ -1,7 +1,7 @@
 class Person {
-  final String name;
-  final String age;
-  final String imageUrl;
+  final String title;
+  final String description;
+  final String image;
 
-  Person({required this.name, required this.age, required this.imageUrl});
+  Person({required this.title, required this.description, required this.image});
 }
