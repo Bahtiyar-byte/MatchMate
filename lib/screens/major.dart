@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:match_mate/cards_swipe_widget.dart';
 import 'package:match_mate/people_list.dart';
-import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/popup_menu_widget.dart';
+import 'package:match_mate/story_widget.dart';
 
 class MajorScreen extends StatelessWidget {
   final PeopleList peopleList = PeopleList.generatePeople();
@@ -11,15 +12,15 @@ class MajorScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     void handleMenuItemSelected(String value) {
-      // Обработка выбора пункта меню
+      // Handle menu item selected
       if (value == 'about') {
-        // "О программе"
+        // on "About"
       } else if (value == 'cabinet') {
-        // "Кабинет"
+        // on "Cabinet"
       } else if (value == 'settings') {
-        // "Настройки"
+        // on "Settings"
       } else if (value == 'logout') {
-        // "Выйти"
+        // on "Log Out"
       }
     }
 
@@ -34,7 +35,7 @@ class MajorScreen extends StatelessWidget {
         actions: [
           InkWell(
             onTap: () {
-              // Код, который будет выполнен при нажатии
+              // Code to be executed on tap
             },
             child: Container(
               width: 32,
@@ -63,37 +64,7 @@ class MajorScreen extends StatelessWidget {
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           StoryWidget(),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          Expanded(
-            flex: 3,
-            child: PageView.builder(
-              itemCount: peopleList.people.length,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) {
-                final person = peopleList.people[index];
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    color: theme.colorScheme.background,
-                    elevation: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(person.image, fit: BoxFit.cover),
-                          SizedBox(height: 8),
-                          Text(person.title, style: theme.textTheme.headline6?.copyWith(color: theme.textTheme.bodyLarge?.color)),
-                          SizedBox(height: 8),
-                          Text(person.description, style: TextStyle(color: theme.textTheme.bodyLarge?.color)),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+          CardsSwipeWidget(peopleList: peopleList),
         ],
       ),
     );

@@ -11,3 +11,4 @@ class Story {
     required this.image,
   });
 }
+
