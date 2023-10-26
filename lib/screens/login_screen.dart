@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/screens/major.dart';
+import 'package:match_mate/screens/tips_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -82,20 +82,20 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 10), // Уменьшаем вертикальный отступ
+              SizedBox(height: 10),
 
-              // Кнопка Login с красным фоном и круглыми краями на всю ширину экрана
+
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MajorScreen(),
+                      builder: (context) => TipsScreen(),
                     ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
 
-                  primary: Theme.of(context).hintColor, //  цвет фона
+                  primary: Theme.of(context).hintColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -105,13 +105,13 @@ class LoginScreen extends StatelessWidget {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    color: Colors.white, // Белый текст
+                    color: Colors.white,
                     fontSize: 16,
                   ),
                 ),
               ),
 
-              SizedBox(height: 20), // Уменьшаем вертикальный отступ
+              SizedBox(height: 20),
 
               // Текст "OR" посередине полосы
               Stack(
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   Center(
                     child: Container(
                       color: Colors.black, // Цвет фона текста
-                      padding: EdgeInsets.symmetric(horizontal: 10), // Отступы вокруг текста
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         'or',
                         style: TextStyle(
@@ -150,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
                       ),
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                      minimumSize: Size(150, 0), // Ширина кнопки
+                      minimumSize: Size(145, 0), // Ширина кнопки
                     ),
                     child: Text(
                       'Facebook',
@@ -171,7 +171,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
                       ),
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                      minimumSize: Size(150, 0), // Ширина кнопки
+                      minimumSize: Size(145, 0), // Ширина кнопки
                     ),
                     child: Text(
                       'Google',

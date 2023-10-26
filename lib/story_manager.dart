@@ -4,7 +4,7 @@ class StoryManager {
   static final List<Story> stories = [
     Story(
       id: 1,
-      name: "airsoft",
+      name: "Bahtiyar",
       text: "Having fun!",
       image: "assets/stories/1.jpg",
     ),

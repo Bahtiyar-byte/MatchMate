@@ -97,7 +97,14 @@ flutter:
      - assets/cards/7.jpeg
      - assets/cards/8.jpeg
      - assets/cards/9.jpeg
-     - assets/cards/10.jpeg
+       
+     - assets/tips/sport.png
+     - assets/tips/garden.png
+     - assets/tips/games.png
+     - assets/tips/tourism.png
+     - assets/tips/cinema.png
+     - assets/tips/coocking.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/screens/auth.dart';
-import 'package:match_mate/screens/splash.dart';
+import 'package:match_mate/screens/splash_screen.dart';
 import 'package:match_mate/story_notifier.dart';
 import 'package:provider/provider.dart';
 

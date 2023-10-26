@@ -27,6 +27,8 @@ class CardsSwipeWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text('Bahtiyars Hobbies', style: theme.textTheme.headline6?.copyWith(color: theme.textTheme.bodyLarge?.color)),
+                    SizedBox(height: 8),
                     Image.asset(person.image, fit: BoxFit.cover),
                     SizedBox(height: 8),
                     Text(person.title, style: theme.textTheme.headline6?.copyWith(color: theme.textTheme.bodyLarge?.color)),

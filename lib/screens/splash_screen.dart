@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/screens/auth.dart';
-import 'package:match_mate/screens/login.dart';
+import 'package:match_mate/screens/login_screen.dart';
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

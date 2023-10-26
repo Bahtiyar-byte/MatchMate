@@ -55,7 +55,7 @@ class PeopleList {
       Person(
         title: 'Isabella',
         description: 'Isabella is a 26-year-old graphic designer who has a passion for illustration and animation. She enjoys bringing her creative ideas to life through her artwork.',
-        image: 'assets/cards/10.jpeg',
+        image: 'assets/cards/1.jpeg',
       ),
     ]);
   }
