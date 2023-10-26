@@ -105,6 +105,13 @@ flutter:
      - assets/tips/cinema.png
      - assets/tips/coocking.png
 
+     - assets/hobbies/run.png
+     - assets/hobbies/swim.png
+     - assets/hobbies/football.png
+     - assets/hobbies/powerlifting.png
+     - assets/hobbies/ske.png
+     - assets/hobbies/bike.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

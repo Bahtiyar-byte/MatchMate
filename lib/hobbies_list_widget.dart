@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/tips.dart';
+import 'package:match_mate/hobby.dart';
 
-class TipsListWidget extends StatelessWidget {
-  final List<Tip> tips;
-  final void Function(Tip) onTipSelected;
+class HobbiesListWidget extends StatelessWidget {
+  final List<Hobby> hobbies;
+  final void Function(Hobby) onTipSelected;
 
-  TipsListWidget({required this.tips, required this.onTipSelected});
+  HobbiesListWidget({required this.hobbies, required this.onTipSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +13,12 @@ class TipsListWidget extends StatelessWidget {
       height: 600, // Установите желаемую высоту
       child: PageView.builder(
         controller: PageController(viewportFraction: 1), // Каждая страница занимает весь экран
-        itemCount: (tips.length / 6).ceil(), // Количество страниц
+        itemCount: (hobbies.length / 6).ceil(), // Количество страниц
         itemBuilder: (context, pageIndex) {
           int start = pageIndex * 6;
           int end = start + 6;
-          if (end > tips.length) end = tips.length;
-          List<Tip> tipsOnPage = tips.sublist(start, end);
+          if (end > hobbies.length) end = hobbies.length;
+          List<Hobby> tipsOnPage = hobbies.sublist(start, end);
           return Padding(
             padding: const EdgeInsets.all(12.0), // Добавление паддинга внутри страницы
             child: GridView.builder(
@@ -26,7 +26,7 @@ class TipsListWidget extends StatelessWidget {
                 crossAxisCount: 2, // Два столбца
                 crossAxisSpacing: 6, // Расстояние по ширине между блоками
                 mainAxisSpacing: 6, // Расстояние по высоте между блоками
-                childAspectRatio: 1 / 1.32, // Увеличенное соотношение сторон для каждого блока
+                childAspectRatio: 1 / 1, // Уменьшенное соотношение сторон для каждого блока
               ),
               itemCount: tipsOnPage.length,
               itemBuilder: (context, index) {
@@ -35,7 +35,7 @@ class TipsListWidget extends StatelessWidget {
                   onTap: () => onTipSelected(tip),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(30),
                       border: Border.all(color: Colors.blue, width: 2),
                     ),
                     child: Column(

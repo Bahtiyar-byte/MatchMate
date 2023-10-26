@@ -3,40 +3,36 @@ import 'package:match_mate/cards_swipe_widget.dart';
 import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
+import 'package:match_mate/hobby.dart';
 import 'package:match_mate/tips.dart';
-import 'package:match_mate/tips_list_widget.dart';
-import 'package:match_mate/screens/hobbies_screen.dart';
+import 'package:match_mate/hobbies_list_widget.dart';
 
-class TipsScreen extends StatefulWidget {
+class HobbiesScreen extends StatefulWidget {
+  final Tip tip;
+  HobbiesScreen({required this.tip});
+
   @override
-  _TipsScreenState createState() => _TipsScreenState();
+  _HobbiesScreenState createState() => _HobbiesScreenState();
 }
 
-class _TipsScreenState extends State<TipsScreen> {
-  final PeopleList peopleList = PeopleList.generatePeople();
+class _HobbiesScreenState extends State<HobbiesScreen> {
   bool _isSearchVisible = false;
 
-  final List<Tip> tips = [
-    Tip('Sport', 'assets/tips/sport.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Garden', 'assets/tips/garden.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Games', 'assets/tips/games.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Tourism', 'assets/tips/tourism.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Cinema', 'assets/tips/cinema.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Coocking', 'assets/tips/coocking.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
+  final List<Hobby> hobbies = [
+    Hobby('Run', 'assets/hobbies/run.png'),
+    Hobby('Swim', 'assets/hobbies/swim.png'),
+    Hobby('Bike', 'assets/hobbies/bike.png'),
+    Hobby('Football', 'assets/hobbies/football.png'),
+    Hobby('Powerlifting', 'assets/hobbies/powerlifting.png'),
+    Hobby('Ski', 'assets/hobbies/ske.png'),
 
-    Tip('Sport', 'assets/tips/sport.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Garden', 'assets/tips/garden.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Games', 'assets/tips/games.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Tourism', 'assets/tips/tourism.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Cinema', 'assets/tips/cinema.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Coocking', 'assets/tips/coocking.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
 
 
   ];
 
-  void _handleTipSelected(Tip tip) {
+  void _handleTipSelected(Hobby hobby) {
     // Обработка выбора Tip
-
+    /*
     Navigator.push(
 
       context,
@@ -45,7 +41,7 @@ class _TipsScreenState extends State<TipsScreen> {
       ),
     );
 
-
+     */
   }
 
   @override
@@ -136,7 +132,7 @@ class _TipsScreenState extends State<TipsScreen> {
             ),
           ),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          TipsListWidget(tips: tips, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
+          HobbiesListWidget(hobbies: hobbies, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
