@@ -6,6 +6,8 @@ import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/hobby.dart';
 import 'package:match_mate/tips.dart';
 import 'package:match_mate/hobbies_list_widget.dart';
+import 'package:match_mate/screens/tips_screen.dart';
+import 'package:match_mate/screens/major_screen.dart';
 
 class HobbiesScreen extends StatefulWidget {
   final Tip tip;
@@ -139,7 +141,11 @@ class _HobbiesScreenState extends State<HobbiesScreen> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Обработчик нажатия кнопки Facebook
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => TipsScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).hintColor, //  цвет фона
@@ -150,7 +156,7 @@ class _HobbiesScreenState extends State<HobbiesScreen> {
                   minimumSize: Size(150, 0), // Ширина кнопки
                 ),
                 child: Text(
-                  'Previous',
+                  'Tips',
                   style: TextStyle(
                     color: Colors.white, // Белый текст
                     fontSize: 16,
@@ -160,7 +166,11 @@ class _HobbiesScreenState extends State<HobbiesScreen> {
               SizedBox(width: 20), // Отступ между кнопками
               ElevatedButton(
                 onPressed: () {
-                  // Обработчик нажатия кнопки Google
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => MajorScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).hintColor, //  цвет фона

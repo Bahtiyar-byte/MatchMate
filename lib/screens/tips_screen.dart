@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:match_mate/cards_swipe_widget.dart';
 import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
+import 'package:match_mate/screens/major_screen.dart';
 import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/tips.dart';
 import 'package:match_mate/tips_list_widget.dart';
@@ -138,6 +139,32 @@ class _TipsScreenState extends State<TipsScreen> {
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           TipsListWidget(tips: tips, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
 
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => MajorScreen(),
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+
+              primary: Theme.of(context).hintColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              padding: EdgeInsets.symmetric(vertical: 15),
+              minimumSize: Size(double.infinity, 0),
+            ),
+            child: Text(
+              'Skip',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          /*
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -184,6 +211,7 @@ class _TipsScreenState extends State<TipsScreen> {
               ),
             ],
           ),
+          */
         ],
       ),
     );

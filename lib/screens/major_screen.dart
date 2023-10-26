@@ -3,6 +3,7 @@ import 'package:match_mate/cards_swipe_widget.dart';
 import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
+import 'package:match_mate/screens/tips_screen.dart';
 
 class MajorScreen extends StatefulWidget {
   @override
@@ -104,6 +105,57 @@ class _MajorScreenState extends State<MajorScreen> {
           StoryWidget(),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           CardsSwipeWidget(peopleList: peopleList),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => TipsScreen(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).hintColor, //  цвет фона
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
+                  minimumSize: Size(145, 0), // Ширина кнопки
+                ),
+                child: Text(
+                  'Tips',
+                  style: TextStyle(
+                    color: Colors.white, // Белый текст
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(width: 20), // Отступ между кнопками
+
+              ElevatedButton(
+                onPressed: () {
+                  // Обработчик нажатия кнопки Google
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).hintColor, //  цвет фона
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
+                  minimumSize: Size(145, 0), // Ширина кнопки
+                ),
+                child: Text(
+                  'Google',
+                  style: TextStyle(
+                    color: Colors.white, // Белый текст
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
