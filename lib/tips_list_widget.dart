@@ -11,26 +11,27 @@ class TipsListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 600, // Установите желаемую высоту
-      child: PageView.builder(
-        controller: PageController(viewportFraction: 1), // Каждая страница занимает весь экран
-        itemCount: (tips.length / 6).ceil(), // Количество страниц
-        itemBuilder: (context, pageIndex) {
-          int start = pageIndex * 6;
-          int end = start + 6;
+      child: ListView.builder(
+        itemCount: (tips.length / 2).ceil(), // Количество блоков советов
+        itemBuilder: (context, blockIndex) {
+          int start = blockIndex * 2;
+          int end = start + 2;
           if (end > tips.length) end = tips.length;
-          List<Tip> tipsOnPage = tips.sublist(start, end);
+          List<Tip> tipsInBlock = tips.sublist(start, end);
           return Padding(
-            padding: const EdgeInsets.all(12.0), // Добавление паддинга внутри страницы
+            padding: const EdgeInsets.symmetric(vertical: 6.0), // Отступ между блоками
             child: GridView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // Два столбца
                 crossAxisSpacing: 6, // Расстояние по ширине между блоками
                 mainAxisSpacing: 6, // Расстояние по высоте между блоками
                 childAspectRatio: 1 / 1, // Уменьшенное соотношение сторон для каждого блока
               ),
-              itemCount: tipsOnPage.length,
+              itemCount: tipsInBlock.length,
               itemBuilder: (context, index) {
-                final tip = tipsOnPage[index];
+                final tip = tipsInBlock[index];
                 return InkWell(
                   onTap: () => onTipSelected(tip),
                   child: Container(
@@ -43,10 +44,7 @@ class TipsListWidget extends StatelessWidget {
                         Expanded(
                           flex: 2,
                           child: ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
+                            borderRadius: BorderRadius.circular(10),
                             child: Image.asset(tip.imageAsset, fit: BoxFit.cover),
                           ),
                         ),
