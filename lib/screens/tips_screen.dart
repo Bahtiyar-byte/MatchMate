@@ -4,9 +4,11 @@ import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/screens/major_screen.dart';
 import 'package:match_mate/story_widget.dart';
-import 'package:match_mate/tips.dart';
+import 'package:match_mate/datastore/data_tip.dart';
 import 'package:match_mate/tips_list_widget.dart';
 import 'package:match_mate/screens/hobbies_screen.dart';
+import 'package:match_mate/datastore/data_context.dart';
+import 'package:provider/provider.dart';
 
 class TipsScreen extends StatefulWidget {
   @override
@@ -14,26 +16,17 @@ class TipsScreen extends StatefulWidget {
 }
 
 class _TipsScreenState extends State<TipsScreen> {
+  late DataContext dataContext;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    dataContext = Provider.of<DataContext>(context);
+  }
+
   final PeopleList peopleList = PeopleList.generatePeople();
   bool _isSearchVisible = false;
 
-  final List<Tip> tips = [
-    Tip('Sport', 'assets/tips/sport.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Garden', 'assets/tips/garden.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Games', 'assets/tips/games.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Tourism', 'assets/tips/tourism.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Cinema', 'assets/tips/cinema.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Coocking', 'assets/tips/coocking.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-
-    Tip('Sport', 'assets/tips/sport.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Garden', 'assets/tips/garden.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Games', 'assets/tips/games.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Tourism', 'assets/tips/tourism.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Cinema', 'assets/tips/cinema.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-    Tip('Coocking', 'assets/tips/coocking.png', ['Skee', 'Tennis', 'Run', 'Football', 'Swim']),
-
-
-  ];
 
   void _handleTipSelected(Tip tip) {
     // Обработка выбора Tip
@@ -44,8 +37,9 @@ class _TipsScreenState extends State<TipsScreen> {
       MaterialPageRoute(
         builder: (context) => HobbiesScreen(tip: tip),
       ),
-    );
 
+
+    );
 
   }
 
@@ -137,7 +131,7 @@ class _TipsScreenState extends State<TipsScreen> {
             ),
           ),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          TipsListWidget(tips: tips, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
+          TipsListWidget(tips: dataContext.tips, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
 
           ElevatedButton(
             onPressed: () {
@@ -164,54 +158,7 @@ class _TipsScreenState extends State<TipsScreen> {
               ),
             ),
           ),
-          /*
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  // Обработчик нажатия кнопки Facebook
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).hintColor, //  цвет фона
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                  minimumSize: Size(150, 0), // Ширина кнопки
-                ),
-                child: Text(
-                  'Previous',
-                  style: TextStyle(
-                    color: Colors.white, // Белый текст
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(width: 20), // Отступ между кнопками
-              ElevatedButton(
-                onPressed: () {
-                  // Обработчик нажатия кнопки Google
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).hintColor, //  цвет фона
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
-                  ),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                  minimumSize: Size(150, 0), // Ширина кнопки
-                ),
-                child: Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white, // Белый текст
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          */
+
         ],
       ),
     );

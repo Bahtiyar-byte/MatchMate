@@ -3,14 +3,15 @@ import 'package:match_mate/screens/auth.dart';
 import 'package:match_mate/screens/splash_screen.dart';
 import 'package:match_mate/story_notifier.dart';
 import 'package:provider/provider.dart';
-import 'package:match_mate/datastore/data_person.dart';
+import 'package:match_mate/datastore/data_context.dart';
 import 'package:match_mate/datastore/data_hobby.dart';
 import 'package:match_mate/datastore/data_tip.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-  //runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
 
+  /*
   Tip tip1 = new Tip(id:1, name:'Sport', description:'Sport sport', imageUrl:'');
   Tip tip2 = new Tip(id:2, name:'Tourism', description:'tour////', imageUrl:'');
 
@@ -26,6 +27,8 @@ void main() async {
   p1.subscribeToHobby(h2);
   p1.subscribeToHobby(h4);
   p1.subscribeToHobby(h3);
+  */
+
 }
 
 class MyApp extends StatelessWidget {
@@ -33,8 +36,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => StoryNotifier(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => StoryNotifier()),
+        ChangeNotifierProvider(create: (context) => DataContext()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Match Mate',

@@ -2,15 +2,39 @@ import 'package:match_mate/datastore/data_hobby.dart';
 import 'package:match_mate/datastore/data_tip.dart';
 
 class Person {
+
+
   int id;
   String name;
+  String surname;
+  String nickname;
+  DateTime birthdate;
   String description;
   String imageUrl;
+
+  Person({
+    required this.id,
+    required this.name,
+    required this.surname,
+    required this.nickname,
+    required this.birthdate,
+    required this.description,
+    required this.imageUrl,
+  });
+
+  int getAge() {
+    final currentDate = DateTime.now();
+    int age = currentDate.year - birthdate.year;
+    if (birthdate.month > currentDate.month ||
+        (birthdate.month == currentDate.month &&
+            birthdate.day > currentDate.day)) {
+      age--;
+    }
+    return age;
+  }
+
   List<Tip> subscribedTips = [];
 
-  Person({required this.id, required this.name, required this.description, required this.imageUrl});
-
-  //Person(this.id, this.name, this.description, this.imageUrl, this.subscribedTips);
 
   Tip? findSubscribedTip(Tip tip)
   {

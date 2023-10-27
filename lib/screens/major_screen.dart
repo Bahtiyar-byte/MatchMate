@@ -4,6 +4,7 @@ import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/screens/tips_screen.dart';
+import 'package:match_mate/datastore/data_context.dart';
 
 class MajorScreen extends StatefulWidget {
   @override

@@ -3,14 +3,17 @@ import 'package:match_mate/cards_swipe_widget.dart';
 import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
-import 'package:match_mate/hobby.dart';
-import 'package:match_mate/tips.dart';
 import 'package:match_mate/hobbies_list_widget.dart';
 import 'package:match_mate/screens/tips_screen.dart';
 import 'package:match_mate/screens/major_screen.dart';
+import 'package:match_mate/datastore/data_context.dart';
+import 'package:match_mate/datastore/data_tip.dart';
+import 'package:match_mate/datastore/data_hobby.dart';
+import 'package:provider/provider.dart';
 
 class HobbiesScreen extends StatefulWidget {
   final Tip tip;
+
   HobbiesScreen({required this.tip});
 
   @override
@@ -18,19 +21,17 @@ class HobbiesScreen extends StatefulWidget {
 }
 
 class _HobbiesScreenState extends State<HobbiesScreen> {
+
+  late DataContext dataContext;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    dataContext = Provider.of<DataContext>(context);
+  }
+
   bool _isSearchVisible = false;
 
-  final List<Hobby> hobbies = [
-    Hobby('Run', 'assets/hobbies/run.png'),
-    Hobby('Swim', 'assets/hobbies/swim.png'),
-    Hobby('Bike', 'assets/hobbies/bike.png'),
-    Hobby('Football', 'assets/hobbies/football.png'),
-    Hobby('Powerlifting', 'assets/hobbies/powerlifting.png'),
-    Hobby('Ski', 'assets/hobbies/ske.png'),
-
-
-
-  ];
 
   void _handleTipSelected(Hobby hobby) {
     // Обработка выбора Tip
@@ -48,6 +49,8 @@ class _HobbiesScreenState extends State<HobbiesScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
     final theme = Theme.of(context);
 
     void handleMenuItemSelected(String value) {
@@ -134,7 +137,7 @@ class _HobbiesScreenState extends State<HobbiesScreen> {
             ),
           ),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          HobbiesListWidget(hobbies: hobbies, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
+          HobbiesListWidget(hobbies: widget.tip.hobbies, onHobbySelected: _handleTipSelected),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

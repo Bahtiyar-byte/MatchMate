@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/hobby.dart';
+import 'package:match_mate/datastore/data_tip.dart';
+import 'package:match_mate/datastore/data_hobby.dart';
 
 class HobbiesListWidget extends StatelessWidget {
   final List<Hobby> hobbies;
-  final void Function(Hobby) onTipSelected;
+  final void Function(Hobby) onHobbySelected;
 
-  HobbiesListWidget({required this.hobbies, required this.onTipSelected});
+  HobbiesListWidget({required this.hobbies, required this.onHobbySelected});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 600, // Установите желаемую высоту
-      child: PageView.builder(
-        controller: PageController(viewportFraction: 1), // Каждая страница занимает весь экран
-        itemCount: (hobbies.length / 6).ceil(), // Количество страниц
-        itemBuilder: (context, pageIndex) {
-          int start = pageIndex * 6;
-          int end = start + 6;
+      child: ListView.builder(
+        itemCount: (hobbies.length / 2).ceil(), // Количество блоков советов
+        itemBuilder: (context, blockIndex) {
+          int start = blockIndex * 2;
+          int end = start + 2;
           if (end > hobbies.length) end = hobbies.length;
-          List<Hobby> tipsOnPage = hobbies.sublist(start, end);
+          List<Hobby> tipsInBlock = hobbies.sublist(start, end);
           return Padding(
-            padding: const EdgeInsets.all(12.0), // Добавление паддинга внутри страницы
+            padding: const EdgeInsets.symmetric(vertical: 6.0), // Отступ между блоками
             child: GridView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // Два столбца
                 crossAxisSpacing: 6, // Расстояние по ширине между блоками
                 mainAxisSpacing: 6, // Расстояние по высоте между блоками
                 childAspectRatio: 1 / 1, // Уменьшенное соотношение сторон для каждого блока
               ),
-              itemCount: tipsOnPage.length,
+              itemCount: tipsInBlock.length,
               itemBuilder: (context, index) {
-                final tip = tipsOnPage[index];
+                final hobby = tipsInBlock[index];
                 return InkWell(
-                  onTap: () => onTipSelected(tip),
+                  onTap: () => onHobbySelected(hobby),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
@@ -43,17 +45,22 @@ class HobbiesListWidget extends StatelessWidget {
                         Expanded(
                           flex: 2,
                           child: ClipRRect(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                            child: Image.asset(tip.imageAsset, fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(10),
+                            child:
+                            Image.asset(
+
+                                hobby.imageAsset(),
+                                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                  // Возвращаем изображение по умолчанию, если произошла ошибка
+                                  return Image.asset('assets/default_image.png');
+                                },
+                                fit: BoxFit.cover),
                           ),
                         ),
                         Expanded(
                           child: Center(
                             child: Text(
-                              tip.title,
+                              hobby.name,
                               style: TextStyle(fontSize: 16),
                             ),
                           ),

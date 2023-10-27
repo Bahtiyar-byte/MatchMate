@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/tips.dart';
+import 'package:match_mate/datastore/data_tip.dart';
 
 class TipsListWidget extends StatelessWidget {
   final List<Tip> tips;
@@ -45,13 +45,20 @@ class TipsListWidget extends StatelessWidget {
                           flex: 2,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(tip.imageAsset, fit: BoxFit.cover),
+                            child:
+                            Image.asset(
+                                tip.imageAsset(),
+                                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                  // Возвращаем изображение по умолчанию, если произошла ошибка
+                                  return Image.asset('assets/default_image.png');
+                                },
+                                fit: BoxFit.cover),
                           ),
                         ),
                         Expanded(
                           child: Center(
                             child: Text(
-                              tip.title,
+                              tip.name,
                               style: TextStyle(fontSize: 16),
                             ),
                           ),

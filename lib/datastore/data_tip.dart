@@ -4,6 +4,11 @@ class Tip {
   String name;
   String description;
   String imageUrl;
+
+  String imageAsset()
+  {
+     return "assets/tips/" + imageUrl;
+  }
   List<Hobby> hobbies = [];
 
   Tip({required this.id, required this.name, required this.description, required this.imageUrl});
