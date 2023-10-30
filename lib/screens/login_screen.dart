@@ -14,14 +14,14 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: EdgeInsets.all(10), // Уменьшаем отступы для изображения
+                padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
                     Container(
                       padding: EdgeInsets.all(10),
                       child: GestureDetector(
                           onTap: () {
-                          Navigator.of(context).pop(); // Вернуться на предыдущий экран
+                          Navigator.of(context).pop();
                         },
                         child: Image.asset(
                           'assets/images/mateLogin.png',
@@ -38,12 +38,12 @@ class LoginScreen extends StatelessWidget {
                     Text(
                       'Find your perfect match!',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14, color: Colors.white), // Уменьшаем размер текста
+                      style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20), // Уменьшаем вертикальный отступ
+              SizedBox(height: 20),
 
               TextField(
                 decoration: InputDecoration(
@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.grey[700],
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
                 ),
                 style: TextStyle(color: Colors.white),
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.grey[700],
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
                 ),
                 style: TextStyle(color: Colors.white),
@@ -135,32 +135,33 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 10), // Уменьшаем вертикальный отступ
+              SizedBox(height: 10),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      // Обработчик нажатия кнопки Facebook
+
+
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).hintColor, //  цвет фона
+                      primary: Theme.of(context).hintColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                      minimumSize: Size(145, 0), // Ширина кнопки
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      minimumSize: Size(145, 0),
                     ),
                     child: Text(
                       'Facebook',
                       style: TextStyle(
-                        color: Colors.white, // Белый текст
+                        color: Colors.white,
                         fontSize: 16,
                       ),
                     ),
                   ),
-                  SizedBox(width: 20), // Отступ между кнопками
+                  SizedBox(width: 20),
                   ElevatedButton(
                     onPressed: () {
                       // Обработчик нажатия кнопки Google
