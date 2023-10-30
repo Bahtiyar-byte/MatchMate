@@ -155,7 +155,7 @@ class DataContext extends ChangeNotifier{
   }
 
   void initPersonsData() {
-        List<Person> persons = [];
+        persons = [];
 
         // Person 1: Alice Smith
         Person alice = Person(
@@ -165,7 +165,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Ali",
               birthdate: DateTime(1990, 5, 10),
               description: "Alice loves to travel and explore new places.",
-              imageUrl: "image_alice.png",
+              imageUrl: "1.png",
         );
         persons.add(alice);
 
@@ -177,7 +177,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Bobby",
               birthdate: DateTime(1985, 3, 15),
               description: "Bob is passionate about football and sports in general.",
-              imageUrl: "image_bob.png",
+              imageUrl: "2.png",
         );
         persons.add(bob);
 
@@ -189,7 +189,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Caz",
               birthdate: DateTime(1992, 8, 20),
               description: "Carol is an art lover and enjoys visiting museums.",
-              imageUrl: "image_carol.png",
+              imageUrl: "3.png",
         );
         persons.add(carol);
 
@@ -201,7 +201,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Dave",
               birthdate: DateTime(1987, 10, 30),
               description: "David is a foodie and loves cooking new recipes.",
-              imageUrl: "image_david.png",
+              imageUrl: "4.png",
         );
         persons.add(david);
 
@@ -213,7 +213,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Evie",
               birthdate: DateTime(1995, 1, 5),
               description: "Eva enjoys gardening and has a green thumb.",
-              imageUrl: "image_eva.png",
+              imageUrl: "5.png",
         );
         persons.add(eva);
 
@@ -225,7 +225,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Frankie",
               birthdate: DateTime(1982, 6, 25),
               description: "Frank is a pet lover and has two cats.",
-              imageUrl: "image_frank.png",
+              imageUrl: "6.png",
         );
         persons.add(frank);
 
@@ -237,7 +237,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Gracie",
               birthdate: DateTime(1998, 4, 15),
               description: "Grace loves reading and has a vast book collection.",
-              imageUrl: "image_grace.png",
+              imageUrl: "7.png",
         );
         persons.add(grace);
 
@@ -249,7 +249,7 @@ class DataContext extends ChangeNotifier{
               nickname: "H",
               birthdate: DateTime(1989, 12, 10),
               description: "Harry is into trekking and loves mountain hikes.",
-              imageUrl: "image_harry.png",
+              imageUrl: "8.png",
         );
         persons.add(harry);
 
@@ -261,7 +261,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Izzy",
               birthdate: DateTime(2000, 7, 30),
               description: "Isabelle is a collector and loves antiques.",
-              imageUrl: "image_isabelle.png",
+              imageUrl: "9.png",
         );
         persons.add(isabelle);
 
@@ -273,7 +273,7 @@ class DataContext extends ChangeNotifier{
               nickname: "Jamie",
               birthdate: DateTime(1979, 2, 22),
               description: "James is an avid hunter and loves outdoor activities.",
-              imageUrl: "image_james.png",
+              imageUrl: "10.png",
         );
         persons.add(james);
 

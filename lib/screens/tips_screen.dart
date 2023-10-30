@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/cards_swipe_widget.dart';
-import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/screens/major_screen.dart';
 import 'package:match_mate/story_widget.dart';
@@ -23,10 +22,7 @@ class _TipsScreenState extends State<TipsScreen> {
     super.didChangeDependencies();
     dataContext = Provider.of<DataContext>(context);
   }
-
-  final PeopleList peopleList = PeopleList.generatePeople();
   bool _isSearchVisible = false;
-
 
   void _handleTipSelected(Tip tip) {
     // Обработка выбора Tip
@@ -37,8 +33,6 @@ class _TipsScreenState extends State<TipsScreen> {
       MaterialPageRoute(
         builder: (context) => HobbiesScreen(tip: tip),
       ),
-
-
     );
 
   }

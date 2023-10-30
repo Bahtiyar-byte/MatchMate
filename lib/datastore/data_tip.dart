@@ -7,7 +7,7 @@ class Tip {
 
   String imageAsset()
   {
-     return "assets/tips/" + imageUrl;
+     return "assets/tips/$imageUrl";
   }
   List<Hobby> hobbies = [];
 

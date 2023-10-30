@@ -36,6 +36,11 @@ class Person {
   List<Tip> subscribedTips = [];
 
 
+  String imageAsset()
+  {
+    return "assets/cards/$imageUrl";
+  }
+
   Tip? findSubscribedTip(Tip tip)
   {
     try

@@ -9,7 +9,7 @@ class Hobby {
 
   String imageAsset()
   {
-    return "assets/hobbies/" + imageUrl;
+    return "assets/hobbies/$imageUrl";
   }
 
   Tip tip;

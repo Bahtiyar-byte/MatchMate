@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/cards_swipe_widget.dart';
-import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/screens/tips_screen.dart';
 import 'package:match_mate/datastore/data_context.dart';
+import 'package:match_mate/datastore/data_person.dart';
+import 'package:provider/provider.dart';
 
 class MajorScreen extends StatefulWidget {
   @override
@@ -12,8 +13,14 @@ class MajorScreen extends StatefulWidget {
 }
 
 class _MajorScreenState extends State<MajorScreen> {
-  final PeopleList peopleList = PeopleList.generatePeople();
   bool _isSearchVisible = false;
+  late DataContext dataContext;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    dataContext = Provider.of<DataContext>(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +112,7 @@ class _MajorScreenState extends State<MajorScreen> {
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           StoryWidget(),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          CardsSwipeWidget(peopleList: peopleList),
+          CardsSwipeWidget(peopleList: dataContext.persons),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
