@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/cards_swipe_widget.dart';
-import 'package:match_mate/popup_menu_widget.dart';
-import 'package:match_mate/story_widget.dart';
+import 'package:match_mate/custom_widgets/cards_swipe_widget.dart';
+import 'package:match_mate/custom_widgets/popup_menu_widget.dart';
+import 'package:match_mate/custom_widgets/story_widget.dart';
 import 'package:match_mate/screens/tips_screen.dart';
 import 'package:match_mate/datastore/data_context.dart';
 import 'package:match_mate/datastore/data_person.dart';
 import 'package:provider/provider.dart';
-import 'package:match_mate/story_notifier.dart'; // Импорт вашего StoryNotifier
+import 'package:match_mate/custom_widgets/story_notifier.dart'; // Импорт вашего StoryNotifier
 
 class MajorScreen extends StatelessWidget {
   @override

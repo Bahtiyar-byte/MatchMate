@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:match_mate/datastore/data_person.dart';
-import 'package:match_mate/story_notifier.dart';
+import 'package:match_mate/custom_widgets/story_notifier.dart';
 
 class StoryWidget extends StatelessWidget {
   final List<Person> people;

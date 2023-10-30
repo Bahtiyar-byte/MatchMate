@@ -181,99 +181,102 @@ class DataContext extends ChangeNotifier{
         );
         persons.add(bob);
 
-        // Person 3: Carol Williams
-        Person carol = Person(
-              id: 3,
-              name: "Carol",
-              surname: "Williams",
-              nickname: "Caz",
-              birthdate: DateTime(1992, 8, 20),
-              description: "Carol is an art lover and enjoys visiting museums.",
-              imageUrl: "3.jpeg",
-        );
-        persons.add(carol);
 
-        // Person 4: David Brown
+        // Person 3: David Brown
         Person david = Person(
-              id: 4,
+              id: 3,
               name: "David",
               surname: "Brown",
               nickname: "Dave",
               birthdate: DateTime(1987, 10, 30),
               description: "David is a foodie and loves cooking new recipes.",
-              imageUrl: "4.jpeg",
+              imageUrl: "3.jpeg",
         );
         persons.add(david);
 
-        // Person 5: Eva Jones
+        // Person 4: Carol Williams
+        Person carol = Person(
+              id: 4,
+              name: "Carol",
+              surname: "Williams",
+              nickname: "Caz",
+              birthdate: DateTime(1992, 8, 20),
+              description: "Carol is an art lover and enjoys visiting museums.",
+              imageUrl: "4.jpeg",
+        );
+        persons.add(carol);
+
+
+
+        // Person 6: Eva Jones
         Person eva = Person(
-              id: 5,
+              id: 6,
               name: "Eva",
               surname: "Jones",
               nickname: "Evie",
               birthdate: DateTime(1995, 1, 5),
               description: "Eva enjoys gardening and has a green thumb.",
-              imageUrl: "5.jpeg",
+              imageUrl: "6.jpeg",
         );
         persons.add(eva);
 
-        // Person 6: Frank Davis
+        // Person 5: Frank Davis
         Person frank = Person(
-              id: 6,
+              id: 5,
               name: "Frank",
               surname: "Davis",
               nickname: "Frankie",
               birthdate: DateTime(1982, 6, 25),
               description: "Frank is a pet lover and has two cats.",
-              imageUrl: "6.jpeg",
+              imageUrl: "5.jpeg",
         );
         persons.add(frank);
 
-        // Person 7: Grace Wilson
+        // Person 8: Grace Wilson
         Person grace = Person(
-              id: 7,
+              id: 8,
               name: "Grace",
               surname: "Wilson",
               nickname: "Gracie",
               birthdate: DateTime(1998, 4, 15),
               description: "Grace loves reading and has a vast book collection.",
-              imageUrl: "7.jpeg",
+              imageUrl: "8.jpeg",
         );
         persons.add(grace);
 
-        // Person 8: Harry White
+        // Person 7: Harry White
         Person harry = Person(
-              id: 8,
+              id: 7,
               name: "Harry",
               surname: "White",
               nickname: "H",
               birthdate: DateTime(1989, 12, 10),
               description: "Harry is into trekking and loves mountain hikes.",
-              imageUrl: "8.jpeg",
+              imageUrl: "7.jpeg",
         );
         persons.add(harry);
 
-        // Person 9: Isabelle Miller
+        // Person 10: Isabelle Miller
         Person isabelle = Person(
-              id: 9,
+              id: 10,
               name: "Isabelle",
               surname: "Miller",
               nickname: "Izzy",
               birthdate: DateTime(2000, 7, 30),
               description: "Isabelle is a collector and loves antiques.",
-              imageUrl: "9.jpeg",
+              imageUrl: "10.jpeg",
         );
         persons.add(isabelle);
 
-        // Person 10: James Taylor
+        // Person 9: James Taylor
         Person james = Person(
-              id: 10,
+              id: 9,
               name: "James",
               surname: "Taylor",
               nickname: "Jamie",
               birthdate: DateTime(1979, 2, 22),
               description: "James is an avid hunter and loves outdoor activities.",
-              imageUrl: "10.jpeg",
+              imageUrl: "9.jpeg",
         );
         persons.add(james);
 
