@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/story.dart';
-import 'package:match_mate/story_manager.dart';
+import 'package:match_mate/datastore/data_person.dart';  // Импортируйте ваш класс Person
 
 class StoryNotifier extends ChangeNotifier {
-  int _selectedStory = -1;
+  Person? _selectedPerson;
 
-  int get selectedStory => _selectedStory;
+  Person? get selectedPerson => _selectedPerson;
 
-  void selectStory(int index) {
-    _selectedStory = index;
+  void selectPerson(Person person) {
+    _selectedPerson = person;
     notifyListeners();
   }
 }

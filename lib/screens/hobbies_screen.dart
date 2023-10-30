@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/cards_swipe_widget.dart';
-import 'package:match_mate/people_list.dart';
 import 'package:match_mate/popup_menu_widget.dart';
 import 'package:match_mate/story_widget.dart';
 import 'package:match_mate/hobbies_list_widget.dart';

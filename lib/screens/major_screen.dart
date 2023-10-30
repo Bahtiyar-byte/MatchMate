@@ -6,13 +6,24 @@ import 'package:match_mate/screens/tips_screen.dart';
 import 'package:match_mate/datastore/data_context.dart';
 import 'package:match_mate/datastore/data_person.dart';
 import 'package:provider/provider.dart';
+import 'package:match_mate/story_notifier.dart'; // Импорт вашего StoryNotifier
 
-class MajorScreen extends StatefulWidget {
+class MajorScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => StoryNotifier(),
+      child: _MajorScreenBody(),
+    );
+  }
+}
+
+class _MajorScreenBody extends StatefulWidget {
   @override
   _MajorScreenState createState() => _MajorScreenState();
 }
 
-class _MajorScreenState extends State<MajorScreen> {
+class _MajorScreenState extends State<_MajorScreenBody> {
   bool _isSearchVisible = false;
   late DataContext dataContext;
 
@@ -110,7 +121,7 @@ class _MajorScreenState extends State<MajorScreen> {
             ),
           ),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          StoryWidget(),
+          StoryWidget(people: dataContext.persons),
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           CardsSwipeWidget(peopleList: dataContext.persons),
           Row(
@@ -125,39 +136,38 @@ class _MajorScreenState extends State<MajorScreen> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).hintColor, //  цвет фона
+                  primary: Theme.of(context).hintColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                  minimumSize: Size(145, 0), // Ширина кнопки
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  minimumSize: Size(145, 0),
                 ),
                 child: Text(
                   'Tips',
                   style: TextStyle(
-                    color: Colors.white, // Белый текст
+                    color: Colors.white,
                     fontSize: 16,
                   ),
                 ),
               ),
-              SizedBox(width: 20), // Отступ между кнопками
-
+              SizedBox(width: 20),
               ElevatedButton(
                 onPressed: () {
                   // Обработчик нажатия кнопки Google
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).hintColor, //  цвет фона
+                  primary: Theme.of(context).hintColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0), // Уменьшаем радиус для создания менее круглых краев
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20), // Устанавливаем горизонтальные отступы
-                  minimumSize: Size(145, 0), // Ширина кнопки
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  minimumSize: Size(145, 0),
                 ),
                 child: Text(
                   'Google',
                   style: TextStyle(
-                    color: Colors.white, // Белый текст
+                    color: Colors.white,
                     fontSize: 16,
                   ),
                 ),
