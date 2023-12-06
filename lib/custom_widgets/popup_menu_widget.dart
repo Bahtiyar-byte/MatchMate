@@ -7,20 +7,15 @@ class PopupMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton(
+    return PopupMenuButton<String>(
       icon: Container(
         padding: EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          //color: Colors.white,
-          shape: BoxShape.rectangle,
-          //border: Border.all(color: Colors.white, width: 2),
-        ),
         child: Image.asset('assets/images/menuB.png', width: 48, height: 48),
       ),
       itemBuilder: (context) => [
         PopupMenuItem(
-          child: Text('About'),
-          value: 'about',
+          child: Text('My hobbies'),
+          value: 'My hobbies', // Обновите значение здесь
         ),
         PopupMenuItem(
           child: Text('Cabinet'),

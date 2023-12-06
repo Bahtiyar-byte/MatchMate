@@ -6,6 +6,7 @@ class TipsListWidget extends StatelessWidget {
   final List<Tip> tips;
   final void Function(Tip) onTipSelected;
 
+
   TipsListWidget({required this.tips, required this.onTipSelected});
 
   @override

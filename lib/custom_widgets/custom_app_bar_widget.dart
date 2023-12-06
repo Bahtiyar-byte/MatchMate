@@ -19,7 +19,10 @@ class CustomAppBar extends StatelessWidget {
           backgroundColor: theme.colorScheme.background,
           title: Text('Match Mate', style: TextStyle(color: theme.textTheme.bodyLarge?.color)),
           centerTitle: true,
-          leading: PopupMenuWidget(onMenuItemSelected: (value) => MenuActionsHandler.handleMenuItemSelected(context, value)),
+          leading: PopupMenuWidget(
+          onMenuItemSelected: (value) => MenuActionsHandler.handleMenuItemSelected(context, value),
+        ),
+
           actions: [
             InkWell(
               onTap: () {

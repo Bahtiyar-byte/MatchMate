@@ -7,9 +7,10 @@ class DataContext extends ChangeNotifier{
   List<Tip> tips = [];
   List<Person> persons = [];
   Person? activePerson;
-
+  Person? user;
   DataContext() {
     activePerson = null;
+    user = null;
 
     notifyListeners();
 
@@ -22,6 +23,14 @@ class DataContext extends ChangeNotifier{
       initPersonsData();
   }
 
+  Person? findPersonByTip(Tip tip) {
+        for (var person in persons) {
+              if (person.description.toLowerCase().contains(tip.name.toLowerCase())) {
+                    return person;
+              }
+        }
+        return null; // Возвращаем null, если не нашли соответствующую персону
+  }
 
   void initTipsData() {
 
@@ -155,9 +164,8 @@ class DataContext extends ChangeNotifier{
   }
 
   void initPersonsData() {
-        persons = [];
 
-        // Person 1: Alice Smith
+
         Person alice = Person(
               id: 1,
               name: "Alice",
@@ -167,6 +175,28 @@ class DataContext extends ChangeNotifier{
               description: "Alice loves to travel and explore new places.",
               imageUrl: "1.jpeg",
         );
+
+        alice.subscribeToHobby(tips[0].hobbies[0]);
+        alice.subscribeToHobby(tips[0].hobbies[2]);
+        alice.subscribeToHobby(tips[1].hobbies[0]);
+
+        persons = [];
+
+        // Person 1: Alice Smith
+        user = Person(
+              id: 0,
+              name: "Bahtiyar",
+              surname: "Haydarov",
+              nickname: "Brandon",
+              birthdate: DateTime(1986, 5, 10),
+              description: "Brandon loves to coding.",
+              imageUrl: "0.jpeg",
+        );
+
+        alice.subscribeToHobby(tips[0].hobbies[0]);
+        alice.subscribeToHobby(tips[0].hobbies[2]);
+        alice.subscribeToHobby(tips[1].hobbies[0]);
+
         persons.add(alice);
 
         // Person 2: Bob Johnson
