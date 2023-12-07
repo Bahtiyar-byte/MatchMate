@@ -54,8 +54,11 @@ class Person {
   }
 
   void subscribeToTip(Tip tip) {
-    if (!subscribedTips.contains(tip)) {
-      subscribedTips.add(tip);
+    if (!subscribedTips.contains(tip))
+    {
+      Tip subTip = Tip.copy(tip);
+      subscribedTips.add(subTip);
+
     }
   }
 

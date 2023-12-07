@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:match_mate/custom_widgets/hobbies_list_widget.dart';
-import 'package:match_mate/screens/tips_screen.dart';
+import 'package:match_mate/screens/person_tips_screen.dart';
 import 'package:match_mate/screens/major_screen.dart';
 import 'package:match_mate/datastore/data_context.dart';
 import 'package:match_mate/datastore/data_tip.dart';
 import 'package:match_mate/datastore/data_hobby.dart';
 import 'package:provider/provider.dart';
 import 'package:match_mate/custom_widgets/custom_app_bar_widget.dart';
+import 'package:match_mate/screens/screen_manager.dart';
 
 class PersonHobbiesScreen extends StatefulWidget {
   final Tip tip;
@@ -29,23 +30,23 @@ class _PesronHobbiesScreenState extends State<PersonHobbiesScreen> {
   bool _isSearchVisible = false;
 
   void _handleTipSelected(Hobby hobby) {
-    // Обработка выбора Tip
+
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    print("tips");
+    print(widget.tip.name);
+    print("hobbies");
 
+    print(widget.tip.hobbies.length);
     return Scaffold(
       backgroundColor: theme.colorScheme.background,
       body: Column(
         children: [
           // Custom AppBar
-          CustomAppBar(isSearchVisible: _isSearchVisible, onSearchToggle: (isVisible) { // <-- Использование CustomAppBar
-            setState(() {
-              _isSearchVisible = isVisible;
-            });
-          }),
+
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
           HobbiesListWidget(hobbies: widget.tip.hobbies, onHobbySelected: _handleTipSelected),
 
@@ -54,11 +55,7 @@ class _PesronHobbiesScreenState extends State<PersonHobbiesScreen> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TipsScreen(),
-                    ),
-                  );
+                  ScreenManager.openPersonTipsScreen(context);
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).hintColor,

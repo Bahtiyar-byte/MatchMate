@@ -17,8 +17,11 @@ class DataContext extends ChangeNotifier{
     initTestData();
   }
 
+
   void initTestData()
   {
+
+
       initTipsData();
       initPersonsData();
   }
@@ -164,6 +167,20 @@ class DataContext extends ChangeNotifier{
   void initPersonsData() {
 
 
+        user = Person(
+              id: 0,
+              name: "Bahtiyar",
+              surname: "Haydarov",
+              nickname: "Brandon",
+              birthdate: DateTime(1986, 5, 10),
+              description: "Brandon loves to coding.",
+              imageUrl: "0.jpeg",
+        );
+
+        user?.subscribeToHobby(tips[0].hobbies[0]);
+        user?.subscribeToHobby(tips[0].hobbies[2]);
+        user?.subscribeToHobby(tips[1].hobbies[0]);
+
         Person alice = Person(
               id: 1,
               name: "Alice",
@@ -179,17 +196,6 @@ class DataContext extends ChangeNotifier{
         alice.subscribeToHobby(tips[1].hobbies[0]);
 
         persons = [];
-
-        // Person 1: Alice Smith
-        user = Person(
-              id: 0,
-              name: "Bahtiyar",
-              surname: "Haydarov",
-              nickname: "Brandon",
-              birthdate: DateTime(1986, 5, 10),
-              description: "Brandon loves to coding.",
-              imageUrl: "0.jpeg",
-        );
 
         alice.subscribeToHobby(tips[0].hobbies[0]);
         alice.subscribeToHobby(tips[0].hobbies[2]);

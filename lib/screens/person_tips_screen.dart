@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/custom_widgets/cards_swipe_widget.dart';
-import 'package:match_mate/custom_widgets/popup_menu_widget.dart';
 import 'package:match_mate/screens/major_screen.dart';
-import 'package:match_mate/custom_widgets/mates_top_list_widget.dart';
 import 'package:match_mate/datastore/data_tip.dart';
 import 'package:match_mate/custom_widgets/tips_list_widget.dart';
 import 'package:match_mate/screens/hobbies_screen.dart';
 import 'package:match_mate/datastore/data_context.dart';
 import 'package:provider/provider.dart';
-import 'package:match_mate/custom_widgets/custom_app_bar_widget.dart';
+import 'package:match_mate/screens/screen_manager.dart';
 
 class PersonTipsScreen extends StatefulWidget {
   @override
@@ -22,31 +19,35 @@ class _PersonTipsScreenState extends State<PersonTipsScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     dataContext = Provider.of<DataContext>(context);
+
   }
   bool _isSearchVisible = false;
 
   void _handleTipSelected(Tip tip) {
-    // Обработка выбора Tip
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HobbiesScreen(tip: tip),
-      ),
-    );
+    ScreenManager.openPersonHobbiesScreen(context, tip);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
+    if (dataContext.user != null) {
+      print("user:");
+      print(dataContext.user?.name);
+    }
+    else
+      print("user: = null");
     return Scaffold(
       backgroundColor: theme.colorScheme.background,
       body: Column(
         children: [
 
           Container(height: 1, color: theme.dividerColor, margin: EdgeInsets.symmetric(vertical: 8)),
-          TipsListWidget(tips: dataContext.tips, onTipSelected: _handleTipSelected), // Используйте TipsListWidget здесь
+
+          TipsListWidget(
+            tips: dataContext.user?.subscribedTips ?? [], // Используйте оператор условного доступа и пустой список в качестве запасного значения
+            onTipSelected: _handleTipSelected,
+          ),
+
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(
