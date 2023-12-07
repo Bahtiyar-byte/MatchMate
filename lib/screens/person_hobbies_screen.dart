@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:match_mate/custom_widgets/hobbies_list_widget.dart';
 import 'package:match_mate/screens/tips_screen.dart';
 import 'package:match_mate/screens/major_screen.dart';
@@ -9,16 +8,16 @@ import 'package:match_mate/datastore/data_hobby.dart';
 import 'package:provider/provider.dart';
 import 'package:match_mate/custom_widgets/custom_app_bar_widget.dart';
 
-class HobbiesScreen extends StatefulWidget {
+class PersonHobbiesScreen extends StatefulWidget {
   final Tip tip;
 
-  HobbiesScreen({required this.tip});
+  PersonHobbiesScreen({required this.tip});
 
   @override
-  _HobbiesScreenState createState() => _HobbiesScreenState();
+  _PesronHobbiesScreenState createState() => _PesronHobbiesScreenState();
 }
 
-class _HobbiesScreenState extends State<HobbiesScreen> {
+class _PesronHobbiesScreenState extends State<PersonHobbiesScreen> {
   late DataContext dataContext;
 
   @override
