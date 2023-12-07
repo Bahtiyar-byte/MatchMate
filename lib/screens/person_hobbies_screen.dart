@@ -76,11 +76,7 @@ class _PesronHobbiesScreenState extends State<PersonHobbiesScreen> {
               SizedBox(width: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => MajorScreen(),
-                    ),
-                  );
+                  ScreenManager.openTipsScreen(context);
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).hintColor,

@@ -195,11 +195,6 @@ class DataContext extends ChangeNotifier{
         alice.subscribeToHobby(tips[0].hobbies[2]);
         alice.subscribeToHobby(tips[1].hobbies[0]);
 
-        persons = [];
-
-        alice.subscribeToHobby(tips[0].hobbies[0]);
-        alice.subscribeToHobby(tips[0].hobbies[2]);
-        alice.subscribeToHobby(tips[1].hobbies[0]);
 
         persons.add(alice);
 
