@@ -1,33 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/screens/auth.dart';
 import 'package:match_mate/screens/splash_screen.dart';
 import 'package:match_mate/custom_widgets/story_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:match_mate/datastore/data_context.dart';
-import 'package:match_mate/datastore/data_hobby.dart';
-import 'package:match_mate/datastore/data_tip.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
-
-  /*
-  Tip tip1 = new Tip(id:1, name:'Sport', description:'Sport sport', imageUrl:'');
-  Tip tip2 = new Tip(id:2, name:'Tourism', description:'tour////', imageUrl:'');
-
-  Hobby h1 = new Hobby(id:1, name:'football', description:'ffff', imageUrl:'', tip: tip1 );
-  Hobby h2 = new Hobby(id:2, name:'swim', description:'sssss', imageUrl:'', tip: tip1 );
-  Hobby h3 = new Hobby(id:3, name:'bike', description:'bbbb', imageUrl:'', tip: tip1 );
-
-  Hobby h4 = new Hobby(id:4, name:'tracking', description:'ttttt', imageUrl:'', tip: tip2 );
-
-  Person p1 = new Person(id:1, name:'Petr', description:'Perovitch', imageUrl:'');
-
-  p1.subscribeToHobby(h1);
-  p1.subscribeToHobby(h2);
-  p1.subscribeToHobby(h4);
-  p1.subscribeToHobby(h3);
-  */
 
 }
 

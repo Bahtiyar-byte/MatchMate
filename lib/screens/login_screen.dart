@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:match_mate/screens/tips_screen.dart';
+import 'package:match_mate/screens/screen_manager.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -87,11 +87,7 @@ class LoginScreen extends StatelessWidget {
 
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TipsScreen(),
-                    ),
-                  );
+                  ScreenManager.openTipsScreen(context);
                 },
                 style: ElevatedButton.styleFrom(
 

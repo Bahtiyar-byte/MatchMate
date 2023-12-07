@@ -55,7 +55,6 @@ class DataContext extends ChangeNotifier{
         tips.add(sports);
 
 
-
         Tip tourism = Tip(
               id: 2,
               name: "Tourism",
@@ -75,7 +74,6 @@ class DataContext extends ChangeNotifier{
               Hobby(id: 20, name: "Camping", description: "Staying outdoors in a tent.", imageUrl: "image_camping.png", tip: tourism),
         ];
         tips.add(tourism);
-
 
         Tip art = Tip(
               id: 3,
