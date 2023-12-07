@@ -24,8 +24,8 @@ class TipItemWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.blue, width: 2),
-          // Устанавливаем цвет фона в зависимости от подписки
-          color: isSubscribed ? Colors.lightGreen : Colors.white,
+          // Изменяем цвет фона в зависимости от подписки
+          color: isSubscribed ? Colors.lightGreen : Colors.black,
         ),
         child: Column(
           children: [
@@ -45,7 +45,7 @@ class TipItemWidget extends StatelessWidget {
               child: Center(
                 child: Text(
                   tip.name,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: isSubscribed ? Colors.black : Colors.white),
                 ),
               ),
             ),

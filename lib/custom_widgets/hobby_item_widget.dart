@@ -11,19 +11,27 @@ class HobbyItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Получаем доступ к DataContext
     final dataContext = Provider.of<DataContext>(context);
-    // Проверяем, подписан ли пользователь на это хобби
     final isSubscribed = dataContext.user?.haveHobby(hobby) ?? false;
 
     return InkWell(
-      onTap: () => onHobbySelected(hobby),
+      onTap: () {
+        if (isSubscribed) {
+
+          dataContext.user?.removeHobby(hobby);
+        } else {
+
+          dataContext.user?.subscribeToHobby(hobby);
+        }
+        dataContext.notifyListeners(); // Обновляем UI
+        onHobbySelected(hobby); // Можно вызвать дополнительные действия при нажатии
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.blue, width: 2),
-          // Устанавливаем цвет фона в зависимости от подписки
-          color: isSubscribed ? Colors.lightGreen : Colors.white,
+          // Изменяем цвет фона в зависимости от подписки
+          color: isSubscribed ? Colors.lightGreen : Colors.black,
         ),
         child: Column(
           children: [
@@ -44,7 +52,7 @@ class HobbyItemWidget extends StatelessWidget {
               child: Center(
                 child: Text(
                   hobby.name,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: isSubscribed ? Colors.black : Colors.white),
                 ),
               ),
             ),
