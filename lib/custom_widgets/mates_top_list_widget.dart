@@ -16,6 +16,7 @@ class MatesTopListWidget extends StatelessWidget {
         return SizedBox(
           height: 120,
           child: ListView.builder(
+
             controller: _controller,
             scrollDirection: Axis.horizontal,
             itemCount: people.length,

@@ -6,6 +6,7 @@ import 'person_tips_screen.dart';
 import 'person_hobbies_screen.dart';
 import 'major_screen.dart';
 import 'splash_screen.dart';
+import 'persons_screen.dart';
 import 'package:match_mate/datastore/data_tip.dart';
 
 class ScreenManager {
@@ -16,6 +17,12 @@ class ScreenManager {
     );
   }
 
+
+  static void openPersonsScreen(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => PersonsScreen()),
+    );
+  }
 
   // Метод для перехода на экран входа
   static void openLoginScreen(BuildContext context) {

@@ -1,9 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:match_mate/datastore/data_hobby.dart';
 class Tip {
   int id;
   String name;
   String description;
   String imageUrl;
+
+  static double imageSize = 40;
+  Widget imageSmallWidget() {
+    return Image.asset(
+      imageAsset(),
+      width: Tip.imageSize,
+      height: Tip.imageSize,
+      errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+        return Image.asset('assets/default_image.png', width: Tip.imageSize, height: Tip.imageSize);
+      },
+    );
+  }
 
   String imageAsset()
   {

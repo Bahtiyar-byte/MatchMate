@@ -15,11 +15,11 @@ class PopupMenuWidget extends StatelessWidget {
       itemBuilder: (context) => [
         PopupMenuItem(
           child: Text('My hobbies'),
-          value: 'My hobbies', // Обновите значение здесь
+          value: 'MyHobbies', // Обновите значение здесь
         ),
         PopupMenuItem(
-          child: Text('Cabinet'),
-          value: 'cabinet',
+          child: Text('Find mates'),
+          value: 'FindMates',
         ),
         PopupMenuItem(
           child: Text('Settings'),
